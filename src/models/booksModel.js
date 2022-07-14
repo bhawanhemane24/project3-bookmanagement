@@ -17,7 +17,7 @@ const booksSchema = new mongoose.Schema(
     userId: {
       type: ObjectId,
       require: true,
-      ref: "userDb",
+      ref: "user",
     },
     ISBN: {
       type: String,
@@ -54,4 +54,4 @@ const booksSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-module.exports = mongoose.model("booksDb", booksSchema);
+module.exports = mongoose.model("book", booksSchema);

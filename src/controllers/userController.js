@@ -1,7 +1,7 @@
 const userModel = require("../models/userModel")
 const jwt = require('jsonwebtoken')
 const validator = require('../validator/validator')
-const secretKey = 'CACA'
+const secretKey = 'groupdb'
 
 // -------------------------------------------------------- REGEX ---------------------------------------------------------
 const nameRegex = /^[ a-z ]+$/i

@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const booksController = require("../controllers/booksController");
 const reviewController = require("../controllers/reviewController");
+const amazon = require("../controllers/aws.js");
 const mid = require("../middleware/auth")
 
 
@@ -22,7 +23,8 @@ router.delete("/books/:bookId", mid.auth , booksController.deleteBooksById)
 router.post("/books/:bookId/review", reviewController.createReview)
 router.put("/books/:bookId/review/:reviewId", reviewController.updateReview)
 router.delete("/books/:bookId/review/:reviewId", reviewController.deleteReviwsById)
-
+//-----------------------------AWS APIs---------------------------------------------------
+router.post("/write-file-aws/:bookId", amazon.s3)
 
 router.all("/**", function (req, res) {         // To check whether correct api is provided or not
     res.status(404).send({
